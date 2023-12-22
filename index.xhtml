@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cryptography</title>
+</head>
+<body>
+<main>
+<article>
+	<h1>Cryptography</h1>
+	<address class="h-card">
+		by
+		<a rel="author" class="u-url" href="http://changelog.ca/"><span class="p-given-name">Charles</span> <span class="p-additional-name">Iliya</span> <span class="p-family-name">Krempeaux</span></a>
+	</address>
+	<p>
+		<strong>Cryptography</strong> is about how to communicate securely — and how to do so even when there is a <em>malicious</em> person, people, organization(s), or other entities who are trying to stop you from doing so.
+	</p>
+	<p>
+		<strong>Cryptography</strong> is an important part of <strong>privacy</strong>.
+	</p>
+	<p>
+		<strong>Cryptography</strong> is also sometimes called <strong>cryptology</strong>.
+	</p>
+	<section>
+		<h2>Goals</h2>
+		<p>
+			<strong>Cryptography</strong> is generally used to try provide three different but related things:
+		</p>
+		<ul>
+			<li><strong>confidentiality</strong>,</li>
+			<li><strong>integrity</strong>, and</li>
+			<li><strong>authenticity</strong>.</li>
+		</ul>
+		<p>
+			These three goals form the foundation of the security that <strong>cryptography</strong> tries to provide.
+		</p>
+	</section>
+	<dl>
+		<dt>Confidentiality</dt>
+		<dd>
+			<p>
+				<strong>Confidentiality</strong> is the goal that only the person, people, organization(s), or other entities you addressed the message to can read the message.
+			</p>
+			<p>
+				<strong>Confidentiality</strong> about how to hide information so that only the person, etc you want to read, listen to, or watch, etc a message can do so.
+			</p>
+			<p>
+				(In <strong>cryptography</strong>, things such as text, audio, and video all get called a "<strong>message</strong>".)
+			</p>
+			<p>
+				For example, if I record a video on my mobile phone and send it to my wife, <strong>confidentiality</strong> has it so that only my wife can watch the video, and no one else.
+				Not even the people and organizations that provide the communication infrastructure that I use to send the video to my wife.
+			</p>
+			<p>
+				<strong>Confidentiality</strong> is important for <strong>privacy</strong>.
+			</p>
+		</dd>
+
+		<dt>Integrity</dt>
+		<dd>
+			<p>
+				<strong>Integrity</strong> is the goal that a message’s contents cannot be tampered with.
+			</p>
+			<p>
+				For example, if I write this message to my wife —
+			</p>
+			<blockquote>
+				<p>
+					Meet me at park by the kids' school at 3pm.
+				</p>
+			</blockquote>
+			<p>
+				— <strong>integrity</strong>, for example, has it so someone else cannot change my message to:
+			</p>
+			<blockquote>
+				<p>
+					Meet me at in the dark scary alley behind the grocery store at 2pm.
+				</p>
+			</blockquote>
+			<p>
+					With <strong>integrity</strong>, the message my wife receives will be exactly what I sent her.
+			</p>
+		</dd>
+
+		<dt>Authenticity</dt>
+		<dd>
+			<p>
+				<strong>Authenticity</strong> is the goal that if someone or something claims to be who someone or something, then you can tell if it is actually them.
+			</p>
+			<p>
+				This could be with someone logging into a system.
+				Or it could be with <em>who</em> or <em>what</em> a message is claimed to be from.
+			</p>
+			<p>
+				For example, if my wife receives a message, she can tell if the message is actually from me or not.
+			</p>
+		</dd>
+	</dl>
+	<section>
+		<h2>Jargon</h2>
+		<p>
+			Like many specialties, <strong>cryptography</strong> has its own <em>jargon</em>
+			—
+			special words and special phrases that have special meanings in the specialty.
+		</p>
+		<p>
+			Sometimes <em>jargon</em> is comprised of new words and new phrases.
+			But sometimes <em>jargon</em> is comprised of existing words and existing phrases, which are given new meanings!
+			(This latter form of <em>jargon</em> can not only confuse, but also mislead people who don't understand the <em>jargon</em> of the specialty.)
+		</p>
+		<p>
+			Some of the basic <em>jargon</em>, in <strong>cryptography</strong>, includes the following words in phrases:
+			<em>cipher</em>,
+			<em>cipher-text</em>,
+			<em>decrypt</em>,
+			<em>decryption</em>,
+			<em>digest</em>,
+			<em>encrypt</em>,
+			<em>encryption</em>,
+			<em>hash</em>,
+			<em>message</em>,
+			<em>party</em>, and
+			<em>plain-text</em>.
+		</p>
+		<p>
+			Some of the more advanced <em>jargon</em>, in <strong>cryptography</strong>, includes the following words in phrases:
+			<em>avalanche-effect</em>,
+			<em>bcrypt</em>,
+			<em>brute-force-attack</em>,
+			<em>collision-attack</em>,
+			<em>decryption algorithm</em>,
+			<em>Ed25519</em>,
+			<em>EdDSA</em>,
+			<em>encryption algorithm</em>,
+			<em>GPG</em>,
+			<em>finger-print</em>,
+			<em>key</em>,
+			<em>MD5</em>,
+			<em>pass-phrase</em>,
+			<em>pass-word</em>,
+			<em>pepper</em>,
+			<em>PGP</em>,
+			<em>proof-of-work</em>,
+			<em>rainbow-table</em>,
+			<em>ROT-13</em>,
+			<em>RSA</em>,
+			<em>running key cipher</em>,
+			<em>salt</em>,
+			<em>scrypt</em>,
+			<em>scytale</em>,
+			<em>SHA-1</em>,
+			<em>SHA-2</em>,
+			<em>SHA-3</em>,
+			<em>shift-cipher</em>,
+			<em>sponge-function</em>,
+			<em>signature</em>,
+			<em>substitution cipher</em>,
+			<em>TLS</em>,
+			<em>transposition cipher</em>,
+			<em>web-of-trust</em>,
+			etc etc etc.
+			(There are a lot more advanced <em>jargon</em> than what we listed.)
+		</p>
+		<p>
+			Learning <strong>cryptography</strong>'s <em>jargon</em> will help you understand <strong>cryptography</strong>
+			—
+			as specialists in <strong>cryptography</strong> will very very likely be using <strong>cryptography</strong>'s <em>jargon</em>.
+		</p>
+		<p>
+			Let's first focus on defining the <strong>basic</strong> <em>jargon</em> in <strong>cryptography</strong>.
+		</p>
+		<p>
+			(These definitions <em>won't</em> be in alphabetical order.
+			But instead will be in an order that I think will make them easier to understand.
+			Some <em>jargon</em> is easier to understand once you understand other <em>jargon</em>.)
+		</p>
+		<section>
+			<h3>Plain-Text, Cipher-Text, Encryption, Decryption</h3>
+			<p>
+				What <strong>plain-text</strong> and <strong>cipher-text</strong> as well as <strong>encryption</strong> and <strong>decryption</strong> are is probably most easily understood with some examples.
+			</p>
+
+			<section>
+				<h4>Example №1</h4>
+				<p>
+					If I write this message to my wife —
+				</p>
+				<blockquote>
+					<p>
+						COULD YOU PICK UP THE KIDS FROM SCHOOL TODAY AT 2PM, PLEASE?
+					</p>
+				</blockquote>
+				<p>
+					— that is <strong>plain-text</strong>.
+				</p>
+				<p>
+					I might <em>not</em> want anyone else to be able to read that message (other than my wife).
+					So I can hide that message from others by turning that <strong>plain-text</strong> message into a <strong>cipher-text</strong> message to try to accomplish that.
+				</p>
+				<p>
+					The process of turning a <strong>plain-text</strong> message into a <strong>cipher-text</strong> message is called <strong>encryption</strong>.
+				</p>
+				<p>
+					What would a <strong>cipher-text</strong> message for that <strong>plain-text</strong> message look like‽
+					—
+					well, it depends on what <strong>encryption algorithm</strong> we use.
+				</p>
+				<p>
+					For a very very simple example, if we were using the <strong>ROT-13</strong> <em>encryption algorithm</em>, then the <strong>cipher-text</strong> would be:
+				</p>
+				<blockquote>
+					<p>
+						PBHYQ LBH CVPX HC GUR XVQF SEBZ FPUBBY GBQNL NG 2CZ, CYRNFR?
+					</p>
+				</blockquote>
+				<p>
+					(We will look closer at <strong>ROT-13</strong> later.)
+				</p>
+				<p>
+					For my wife to read my message, she would have to turn that <strong>cipher-text</strong> back into <strong>plain-text</strong>.
+				</p>
+				<p>
+					The process of turning a <strong>cipher-text</strong> message into a <strong>plain-text</strong> message is called <strong>decryption</strong>.
+				</p>
+			</section>
+			<section>
+				<h4>Example №2</h4>
+				<p>
+					Let's look at another example.
+					We will use the same <strong>plain-text</strong> —
+				</p>
+				<p>
+					I.e. again I will write this message to my wife —
+				</p>
+				<blockquote>
+					<p>
+						COULD YOU PICK UP THE KIDS FROM SCHOOL TODAY AT 2PM, PLEASE?
+					</p>
+				</blockquote>
+				<p>
+					— and again that will be the <strong>plain-text</strong>.
+				</p>
+				<p>
+					And again, I will <em>not</em> want anyone else to be able to read that message (other than my wife).
+					So I will hide that message from others by turning that <strong>plain-text</strong> message into a <strong>cipher-text</strong> message to try to accomplish that.
+				</p>
+				<p>
+					<strong>But this time we will use a different <em>encryption algorithm</em>.</strong>
+				</p>
+				<p>
+					With this example, we will use another very very simple <em>encryption algorithm</em> — we will use a <strong>substitution cipher</strong>.
+					To use a <strong>substitution cipher</strong> as your <em>encryption algorithm</em> you need to pick a <em>substitution-alphabet</em>.
+					The <em>substitution-alphabet</em> we will use is —
+				</p>
+				<table>
+					<tr>
+						<th scope="row">normal English alphabet</th>
+						<td>A</td>
+						<td>B</td>
+						<td>C</td>
+						<td>D</td>
+						<td>E</td>
+						<td>F</td>
+						<td>G</td>
+						<td>H</td>
+						<td>I</td>
+						<td>J</td>
+						<td>K</td>
+						<td>L</td>
+						<td>M</td>
+						<td>N</td>
+						<td>O</td>
+						<td>P</td>
+						<td>Q</td>
+						<td>R</td>
+						<td>S</td>
+						<td>T</td>
+						<td>U</td>
+						<td>V</td>
+						<td>W</td>
+						<td>X</td>
+						<td>Y</td>
+						<td>Z</td>
+					</tr>
+					<tr>
+						<th scope="row">cipher alphabet</th>
+						<td>Q</td>
+						<td>K</td>
+						<td>T</td>
+						<td>N</td>
+						<td>H</td>
+						<td>F</td>
+						<td>P</td>
+						<td>R</td>
+						<td>M</td>
+						<td>S</td>
+						<td>U</td>
+						<td>J</td>
+						<td>W</td>
+						<td>C</td>
+						<td>B</td>
+						<td>D</td>
+						<td>Z</td>
+						<td>G</td>
+						<td>X</td>
+						<td>I</td>
+						<td>V</td>
+						<td>Y</td>
+						<td>O</td>
+						<td>E</td>
+						<td>A</td>
+						<td>L</td>
+					</tr>
+				</table>
+				<p>
+					(We will look closer at <strong>substitution ciphers</strong> later.
+					Don't worry if, for example, what a <em>substitution-alphabet</em> is doesn't make sense yet.)
+				</p>
+				<p>
+					With this, if we <strong>encrypt</strong> our <strong>plain-text</strong>, our <strong>cipher-text</strong> would be:
+				</p>
+				<blockquote>
+					<p>
+						TBVJN ABV DMTU VD IRH UMNX FGBW XTRBBJ IBNQA QI 2DW, DJHQXH?
+					</p>
+				</blockquote>
+				<p>
+					And again, for my wife to be able to read my message, she would need to have to <strong>decrypt</strong> the <strong>cipher-text</strong> back into the <strong>plain-text</strong> to get:
+				</p>
+				<blockquote>
+					<p>
+						COULD YOU PICK UP THE KIDS FROM SCHOOL TODAY AT 2PM, PLEASE?
+					</p>
+				</blockquote>
+			</section>
+		</section>
+		<p>
+			So, now that you have seen those examples, let's define those terms.
+		</p>
+		<dl>
+			<dt>Plain-Text</dt>
+			<dd>
+				<p>
+					<strong>Plain-Text</strong> is the original message.
+				</p>
+				<p>
+					In <strong>cryptography</strong>, text, audio, and video all get called a "<strong>plain-text</strong>".
+					Which can be a bit confusing and even misleading as, in regular language, the word "<em>text</em>" tends not to include <em>audio</em> and <em>video</em>.
+					But in <strong>cryptography</strong> it does.
+				</p>
+				<p>
+					Usually when <strong>cryptography</strong> specialists talk about <strong>plain-text</strong>, they are doing so in relation to <strong>cipher-text</strong>.
+				</p>
+			</dd>
+
+			<dt>Cipher-Text</dt>
+			<dd>
+				<p>
+					To make a <strong>plain-text</strong> message <strong>confidential</strong>, we turn it into a <strong>cipher-text</strong>.
+				</p>
+				<p>
+					We turn a <strong>plain-text</strong> message into a <strong>cipher-text</strong> message to hide the message so that only the person, etc you want to read, listen to, or watch, etc the message can do so.
+				</p>
+			</dd>
+
+			<dt>Encryption</dt>
+			<dd>
+				<p>
+					<strong>Encryption</strong> is the process of turning <strong>plain-text</strong> into a <strong>cipher-text</strong>.
+				</p>
+				<p>
+					What the <strong>cipher-text</strong> ends up being depends on what <strong>encryption algorithm</strong> you end up using.
+				</p>
+			</dd>
+
+			<dt>Decryption</dt>
+			<dd>
+				<p>
+					<strong>Decryption</strong> is the process of turning <strong>cipher-text</strong> back into <strong>plain-text</strong>.
+				</p>
+			</dd>
+		</dl>
+	</section>
+</article>
+</main>
+</body>
+</html>
